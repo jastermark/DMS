@@ -3,7 +3,7 @@
 <p align="middle">
   <h3 align="center">To be presented at CVPR 2025</h3>
   <h3 align="center">
-  <a href="?">Project</a>
+  <a href="https://jastermark.github.io/DMS/">Project</a>
   |
   <a href="?">Paper</a>
   </h3>

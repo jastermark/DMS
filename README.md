@@ -3,9 +3,9 @@
 <p align="middle">
   <h3 align="center">To be presented at CVPR 2025</h3>
   <h3 align="center">
-  <a href="https://jastermark.github.io/DMS/">Project</a>
+  <a href="https://jastermark.github.io/DMS/">Project page</a>
   |
-  <a href="?">Paper</a>
+  <a href="https://openaccess.thecvf.com//content/CVPR2025/papers/Astermark_Dense_Match_Summarization_for_Faster_Two-view_Estimation_CVPR_2025_paper.pdf">Paper</a>
   </h3>
 </p>
 

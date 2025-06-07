@@ -147,11 +147,16 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/teaser.png" alt="Image depicting the paper's main idea">
-        <h3 class="subtitle has-text-left">
-          <b>Top:</b> Relative pose estimation from dense matches gives small pose error, but is slow.<br>
-          <b>Bottom:</b> Estimation from summarized matches is significantly faster, with similar pose error.
-        </h3>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+  
+          <img src="static/images/teaser.png" alt="Image depicting the paper's main idea">
+          <h3 class="subtitle has-text-left is-6">
+            <b>Top:</b> Relative pose estimation from dense matches gives small pose error, but is slow.<br>
+            <b>Bottom:</b> Estimation from summarized matches is significantly faster, with similar pose error.
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -178,16 +183,24 @@
 
 
 <section class="section">
-  <div class="container">
+  <div class="container is-max-desktop">
 
     <!-- Method -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-max-desktop">
         <h2 class="title is-3">Method</h2>
+        <img src="static/images/overview.png" style="width: 100%;border: none;"></img>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">  
         <div class="content has-text-justified">
-          <img src="static/images/overview.png"></img>
           <p>
-            As input our method takes a large number of dense matches, typically N = 10 000. First, we cluster the matches into K << N clusters. Then, for each cluster, we perform the following steps:
+            As input our method takes a large number of dense matches, typically \(N = 10\ 000\). First, we cluster the matches into \(K \ll N\) clusters.
+          </p>
+          <p>
+            Then, for each cluster, we perform the following steps:
             <ol>
               <li>Approximate the Sampson error using the cluster centroid \((\boldsymbol{c}, \boldsymbol{\bar{c}})\)</li>
                 \[

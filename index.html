@@ -43,6 +43,10 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <!-- MathJax for rendering mathematical equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -171,6 +175,93 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- Method -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-max-desktop">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/overview.png"></img>
+          <p>
+            As input our method takes a large number of dense matches, typically N = 10 000. First, we cluster the matches into K << N clusters. Then, for each cluster, we perform the following steps:
+            <ol>
+              <li>Approximate the Sampson error using the cluster centroid \((\boldsymbol{c}, \boldsymbol{\bar{c}})\)</li>
+                \[
+                  f_{\text{cluster}}(\mathbf{E}; \mathcal{C})
+                  =
+                  \sum_{(\boldsymbol{x}, \boldsymbol{\bar{x}}) \in \mathcal{C}}
+                  \frac{(\boldsymbol{\bar{x}}^T \mathbf{E} \boldsymbol{x})^2}{\|\mathbf{E}_{12}\boldsymbol{x}\|^2 + \|(\mathbf{E}^T)_{12}\boldsymbol{\bar{x}}\|^2}
+                  \approx
+                  \frac{1}{\|\mathbf{E}_{12}{\boldsymbol{c}}\|^2 + \|(\mathbf{E}^T)_{12}{\boldsymbol{\bar{c}}}\|^2}
+                  \sum_{(\boldsymbol{x}, \boldsymbol{\bar{x}}) \in \mathcal{C}}
+                  (\boldsymbol{\bar{x}}^T \mathbf{E} \boldsymbol{x})^2
+                \]
+              <li>Rewrite the sum as a matrix product</li>
+              \[
+                \sum_{(\boldsymbol{x}, \boldsymbol{\bar{x}}) \in \mathcal{C}}
+                (\boldsymbol{\bar{x}}^T \mathbf{E} \boldsymbol{x})^2
+            =
+            \left\| 
+            \begin{pmatrix}
+              \boldsymbol{\bar{x}}_1^T \mathbf{E} \boldsymbol{x}_1 \\
+              \vdots  \\
+              \boldsymbol{\bar{x}}_n^T \mathbf{E} \boldsymbol{x}_n
+            \end{pmatrix}
+            \right\|^2
+            =
+            \left\| 
+                \begin{pmatrix}
+                  (\boldsymbol{x}_1 \otimes \boldsymbol{\bar{x}}_1)^T \\
+                  \vdots \\
+                  (\boldsymbol{x}_n \otimes \boldsymbol{\bar{x}}_n)^T
+                \end{pmatrix}
+                \mathrm{vec}(\mathbf{E})
+            \right\|^2      
+              \]
+              <li>Use Cholesky factorization to replace the \(N \times 9\) matrix \(\mathbf{A}\) with a \( 9 \times 9\) matrix \(\mathbf{M}\)</li>
+              \[
+              \left\|
+                \mathbf{A} \boldsymbol{e} \right\|^2
+                = \boldsymbol{e} ^T \mathbf{A} ^T \mathbf{A} \boldsymbol{e}
+                = \boldsymbol{e} ^T \mathbf{M} ^T \mathbf{M} \boldsymbol{e}
+                =
+                \left\|
+                    \mathbf{M} \boldsymbol{e}
+                \right\|^2      
+              \]
+            </ol>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Method. -->
+
+</div> 
+</section>
+
+<!--
+<section class="section hero is-light">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-max-desktop">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We found that
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</section>
+-->
+
 
 
 <!-- Image carousel 
